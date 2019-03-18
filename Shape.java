@@ -1,4 +1,7 @@
 
-public enum Shape {
-
+public enum Shape 
+{
+	THIMBLE,
+	BOOT,
+	RACECAR;
 }

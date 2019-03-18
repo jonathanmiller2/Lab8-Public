@@ -1,6 +1,7 @@
 
 public enum Color 
 {
+	//These color values were chosen according to CSS color tables.
 	RED (255, 0, 0),
 	GREEN (0, 128, 0),
 	BLUE (0, 0, 255),
@@ -8,8 +9,10 @@ public enum Color
 	CYAN (0, 255, 255),
 	MAGENTA (255, 0, 255);
 	
+	//Variables for the rgb of the color
 	private int r, g, b;
 	
+	//Constructor for the d
 	private Color(int r, int g, int b)
 	{
 		this.r = r;
