@@ -1,4 +1,5 @@
 
-public enum GamePiece {
-
+public enum GamePiece 
+{
+	
 }
