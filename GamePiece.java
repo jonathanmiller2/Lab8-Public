@@ -34,7 +34,7 @@ public enum GamePiece
 	}
 	
 	public static GamePiece movesFirst(GamePiece a, GamePiece b)
-	{
+	{	
 		if(a.getPriority() < b.getPriority())
 		{
 			return a;

@@ -1,9 +1,8 @@
-
 public enum Color 
 {
-	//These color values were chosen according to CSS color tables.
+	
 	RED (255, 0, 0),
-	GREEN (0, 128, 0),
+	GREEN (0, 255, 0), //This green value doesn't agree with CSS color definitions
 	BLUE (0, 0, 255),
 	YELLOW (255, 255, 0),
 	CYAN (0, 255, 255),
@@ -12,7 +11,7 @@ public enum Color
 	//Variables for the rgb of the color
 	private int r, g, b;
 	
-	//Constructor for the d
+	//Constructor to assign the rgb values
 	private Color(int r, int g, int b)
 	{
 		this.r = r;
@@ -20,16 +19,19 @@ public enum Color
 		this.b = b;	
 	}
 	
+	//Returns: The color's red component
 	public int getR()
 	{
 		return this.r;
 	}
 	
+	//Returns: The color's green component
 	public int getG()
 	{
 		return this.g;
 	}
 	
+	//Returns: The color's blue component
 	public int getB()
 	{
 		return this.b;
