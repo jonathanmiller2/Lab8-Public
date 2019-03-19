@@ -1,3 +1,10 @@
+/**
+ * Enum to represent a color (with rgb values).
+ *
+ * @author Jonathan Miller
+ * @version 2019-03-18
+ */
+
 public enum Color 
 {
 	
