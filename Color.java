@@ -17,7 +17,13 @@ public enum Color
 	//Variables for the rgb of the color
 	private int r, g, b;
 	
-	//Constructor to assign the rgb values
+	/**
+	 * Constructor for the colors
+	 * 
+	 * @param r The color's red component
+	 * @param g The color's green component
+	 * @param b The color's blue component
+	 */
 	private Color(int r, int g, int b)
 	{
 		this.r = r;
@@ -25,19 +31,25 @@ public enum Color
 		this.b = b;	
 	}
 	
-	//Returns: The color's red component
+	/**
+	 * @return The color's red component
+	 */
 	public int getR()
 	{
 		return this.r;
 	}
 	
-	//Returns: The color's green component
+	/**
+	 * @return The color's green component
+	 */
 	public int getG()
 	{
 		return this.g;
 	}
 	
-	//Returns: The color's blue component
+	/**
+	 * @return The color's blue component
+	 */
 	public int getB()
 	{
 		return this.b;

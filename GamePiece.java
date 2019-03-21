@@ -19,29 +19,52 @@ public enum GamePiece
 	private GamePieceAppearance app;
 	private int pri;
 	
+	/**
+	 * The constructor for the different GamePieces
+	 * 
+	 * @param iapp The gamePieceAppearance
+	 * @param ipri The priority
+	 */
 	private GamePiece(GamePieceAppearance iapp, int ipri)
 	{
 		app = iapp;
 		pri = ipri;
 	}
 	
+	/**
+	 * @return The color value of the game piece
+	 */
 	public Color getColor()
 	{
 		return app.getColor();
 	}
 	
+	/**
+	 * @return The shape of the game piece
+	 */
 	public Shape getShape()
 	{
 		return app.getShape();
 	}
 	
+	/**
+	 * @return The priority of the game piece
+	 */
 	public int getPriority()
 	{
 		return pri;
 	}
 	
+	/**
+	 * Determines which of two pieces should move first
+	 * 
+	 * @param a The first game piece to be compared
+	 * @param b The second game piece to be compared
+	 * @return The piece that should move first
+	 */
 	public static GamePiece movesFirst(GamePiece a, GamePiece b)
 	{	
+		//Lower priorities go first, so we determine which has the lower priority
 		if(a.getPriority() < b.getPriority())
 		{
 			return a;

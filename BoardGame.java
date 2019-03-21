@@ -34,11 +34,13 @@ public class BoardGame
 	 */
 	public boolean addPlayer(String playerName, GamePiece gamePiece, Location initialLocation)
 	{
+		//If there's already a player with that gamePiece, return false
 		if(playerPieces.containsValue(gamePiece))
 		{
 			return false;
 		}
 		
+		//Otherwise, assign the new player the piece and location, and return true
 		playerPieces.put(playerName, gamePiece);
 		playerLocations.put(playerName, initialLocation);
 		
@@ -54,6 +56,7 @@ public class BoardGame
 	 */
 	public GamePiece getPlayerGamePiece(String playerName)
 	{
+		//Retrieve the gamepiece from the linkedhashmap
 		return playerPieces.get(playerName);
 	}
 	
@@ -67,15 +70,16 @@ public class BoardGame
 	{
 		//This can also be accomplished by converting the entrySet into a stream, then using filter(), findFirst(), and orElse().
 		//However, that code is messy, so I prefer the classic iterator.
-		String res = null;
 		for(Map.Entry<String, GamePiece> a : playerPieces.entrySet())
 		{
+			//If we find the matching GamePiece, return the key, which indicates the player
 			if(a.getValue() == gamePiece)
 			{
-				res = a.getKey();
+				return a.getKey();
 			}
 		}
-		return res;
+		//If we don't find the right GamePiece, return null
+		return null;
 	}
 	
 	/**
@@ -86,6 +90,7 @@ public class BoardGame
 	 */
 	public void movePlayer(String playerName, Location newLocation)
 	{
+		//Assignt the player to a new location
 		playerLocations.put(playerName, newLocation);
 	}
 	
@@ -98,19 +103,27 @@ public class BoardGame
 	 */
 	public String[] moveTwoPlayers(String[] playerNames, Location[] newLocations)
 	{
+		//Use the .movesFirst to determine in what order to move them
 		GamePiece first = GamePiece.movesFirst(playerPieces.get(playerNames[0]), playerPieces.get(playerNames[1]));
 		
+		//Two options depending on which one is first
 		if(playerPieces.get(playerNames[0]) == first)
 		{
+			//If 0 is first, move it first
 			movePlayer(playerNames[0], newLocations[0]);
 			movePlayer(playerNames[1], newLocations[1]);
+			
+			//Return a string that indicates the order in which they were moved
 			String[] res = {playerNames[0], playerNames[1]};
 			return res;
 		}
 		else
 		{
+			//If 1 is first, move it first			
 			movePlayer(playerNames[1], newLocations[1]);
 			movePlayer(playerNames[0], newLocations[0]);
+			
+			//Return a string that indicates the order in which they were moved
 			String[] res = {playerNames[1], playerNames[0]};
 			return res;
 		}
@@ -124,6 +137,7 @@ public class BoardGame
 	 */
 	public Location getPlayersLocation(String player)
 	{
+		//Retrieve the location associated with the player
 		return playerLocations.get(player);
 	}
 	
@@ -137,10 +151,12 @@ public class BoardGame
 	{
 		ArrayList<String> p = new ArrayList<String>();
 		
+		//Iterate through each entry in the map
 		for(Map.Entry<String, Location> a : playerLocations.entrySet())
 		{
 			if(a.getValue() == loc)
 			{
+				//If an entry is at a location, add the player to the result list
 				p.add(a.getKey());
 			}
 		}
@@ -157,16 +173,20 @@ public class BoardGame
 	 */
 	public ArrayList<GamePiece> getGamePiecesAtLocation(Location loc)
 	{
+		//pl is an array list for players, gp is an array list for their game pieces
 		ArrayList<String> pl = new ArrayList<String>();
 		ArrayList<GamePiece> gp = new ArrayList<GamePiece>();
 		
 		pl = getPlayersAtLocation(loc);
 		
+		//We know what players are at a location, so we just have to get the gamePieces of those players
 		for(String p : pl)
 		{
+			//Add them to the result array list
 			gp.add(playerPieces.get(p));
 		}
 		
+		//Return the result array list
 		return gp;
 	}
 	
@@ -177,6 +197,7 @@ public class BoardGame
 	 */
 	public Set<String> getPlayers()
 	{
+		//The keyset is all of the players added
 		return playerPieces.keySet();
 	}
 	
@@ -187,6 +208,7 @@ public class BoardGame
 	 */
 	public Set<Location> getPlayerLocations()
 	{
+		//Set has to be instantiated as a hashset (??), so we make a new hashset with all of the values from the player locations
 		Set<Location> f = new HashSet<Location>(playerLocations.values());
 		return f;
 	}
@@ -198,6 +220,7 @@ public class BoardGame
 	 */
 	public Set<GamePiece> getPlayerPieces()
 	{
+		//Set has to be instantiated as a hashset (??), so we make a new hashset with all of the values from the player pieces
 		Set<GamePiece> f = new HashSet<GamePiece>(playerPieces.values());
 		return f;
 	}

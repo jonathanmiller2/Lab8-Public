@@ -11,6 +11,9 @@ public enum Shape
 	BOOT,
 	RACECAR;
 	
+	/**
+	 * @return The name of the enum value in lower case
+	 */
 	public String toString()
 	{
 		return this.name().toLowerCase();
