@@ -7,7 +7,6 @@
 
 public enum Color 
 {
-	
 	RED (255, 0, 0),
 	GREEN (0, 255, 0), //This green value doesn't agree with CSS color definitions
 	BLUE (0, 0, 255),

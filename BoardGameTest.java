@@ -14,7 +14,7 @@ public class BoardGameTest {
 		BoardGame b = new BoardGame();
 		boolean res = b.addPlayer("A dead cat", GamePiece.RED_RACER, Location.DINING_ROOM);
 		assertTrue(res);
-		res = b.addPlayer("A dead cat", GamePiece.BLUE_BOOT, Location.BILLIARD_ROOM);
+		res = b.addPlayer("A liquid", GamePiece.RED_RACER, Location.BILLIARD_ROOM);
 		assertFalse(res);
 	}
 	
@@ -132,6 +132,6 @@ public class BoardGameTest {
 		Set<GamePiece> e = new HashSet<>();
 		e.add(GamePiece.RED_RACER);
 		e.add(GamePiece.MAGENTA_RACER);
-		assertEquals(e, b.getPlayerLocations());
+		assertEquals(e, b.getPlayerPieces());
 	}
 }

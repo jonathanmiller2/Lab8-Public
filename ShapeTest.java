@@ -2,11 +2,20 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class ShapeTest {
-
+public class ShapeTest 
+{
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void shapeValueTest() 
+	{
+		Shape s = null;
+		
+		s = Shape.BOOT;
+		assertEquals("boot", s.toString());
+		
+		s = Shape.THIMBLE;
+		assertEquals("thimble", s.toString());
+		
+		s = Shape.RACECAR;
+		assertEquals("racecar", s.toString());
 	}
-
 }

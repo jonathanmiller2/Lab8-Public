@@ -6,6 +6,7 @@
  */
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
@@ -186,7 +187,8 @@ public class BoardGame
 	 */
 	public Set<Location> getPlayerLocations()
 	{
-		return (Set<Location>)playerLocations.values();
+		Set<Location> f = new HashSet<Location>(playerLocations.values());
+		return f;
 	}
 	
 	/**
@@ -196,7 +198,8 @@ public class BoardGame
 	 */
 	public Set<GamePiece> getPlayerPieces()
 	{
-		return (Set<GamePiece>)playerPieces.values();
+		Set<GamePiece> f = new HashSet<GamePiece>(playerPieces.values());
+		return f;
 	}
 }
 	

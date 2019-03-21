@@ -2,11 +2,19 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class GamePieceAppearanceTest {
-
+public class GamePieceAppearanceTest 
+{
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void getShapeTest() 
+	{
+		GamePieceAppearance gpa = new GamePieceAppearance(Color.RED, Shape.BOOT);
+		assertEquals(Shape.BOOT, gpa.getShape());
 	}
-
+	
+	@Test
+	public void getColorTest() 
+	{
+		GamePieceAppearance gpa = new GamePieceAppearance(Color.RED, Shape.BOOT);
+		assertEquals(Color.RED, gpa.getColor());
+	}
 }
